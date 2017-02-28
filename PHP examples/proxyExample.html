@@ -1,0 +1,16 @@
+<html>
+<title>Proxy Example</title>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<body>
+<table id="data">
+</table>
+<script>
+$.getJSON("proxy.php?URL=" + encodeURI("http://webservices.esd.org.uk/metricTypes"),
+	function( data ) {
+		$.each(data["metricType-array"], function(i, item) {
+				$("#data").append("<tr><td>"+item.label+"</td></tr>");
+		});
+	});
+</script>
+</body>
+</html>
